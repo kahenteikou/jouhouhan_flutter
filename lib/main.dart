@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import "package:jouhouhan_flutter/sites/about.dart";
 void main() {
   runApp(MyApp());
 }
@@ -91,23 +91,45 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+
             Text(
-              'You have pushed the button this many times:',
+              "情報班公式ページ",
+              style: TextStyle(
+
+                fontWeight: FontWeight.bold,
+                fontSize: 40,
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Expanded(
+                child:ListView(
+                  children: <Widget>[
+
+                    InkWell(
+                        onTap: (){
+                          Navigator.push(context,MaterialPageRoute(builder: (conkun) => AboutPage()));
+                        },
+                        child:Card(
+                            child:Column(
+                              children: <Widget>[
+                                //Image.asset("images/icon/iconmonstr-map-2-240.png"),
+                                Container(
+                                    margin: EdgeInsets.all(10.0),
+                                    child:ListTile(
+                                      title:Text("情報班について"),
+                                      subtitle: Text("情報班についての内容が載っています"),
+                                    )
+                                )
+                              ],
+                            )
+                        )
+                    ),
+                  ],
+                ))
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
